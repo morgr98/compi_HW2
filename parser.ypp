@@ -1,0 +1,16 @@
+%{ #include "attributes.h"
+#include
+#include output.hpp
+typedef enum { OP_AND, OP_OR } opType;
+using namespace output;
+extern int yylex();
+int yyerror(const char * message);
+%}
+%token tklp tkrp
+%token tkconst
+%left tkor
+%left tkand
+%type Exp
+%%
+S : Exp
+{ cout<<"The expression's value is "<<$1.value< }
