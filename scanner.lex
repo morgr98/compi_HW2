@@ -41,7 +41,7 @@ whitespace ([ \t\n\r])
 id ([a-zA-Z]+[a-zA-Z0-9]*)
 num (0|([1-9]{digit}*))
 space ([ ])
-string \"([^\n\r\"\\]|\\[rnt"\\])+\"
+string \"([^\n\r\"\\]|\\[rnt\"\\])+\"
 
 
 %%

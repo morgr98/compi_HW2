@@ -10,31 +10,31 @@ int yyerror(const char * message);
 %token BYTE
 %token B
 %token BOOL
-%left AND
-%left OR
-%right NOT
 %token TRUE
 %token FALSE
 %token RETURN
-%token IF
 %token WHILE
 %token BREAK
 %token CONTINUE
 %token SC
 %token COMMA
-%token LBRACE
-%token RBRACE
+%token NUM
+%token ID
+%token STRING
+%token COMMENT
+%token IF
 %token ASSIGN
+%left OR
+%left AND
 %left RELOP
 %left PLUS_MINUS
 %left MULT_DIV
 %left LPAREN
 %left RPAREN
+%left LBRACE
+%left RBRACE
+%right NOT
 %right ELSE
-%token NUM
-%token ID
-%token STRING
-%token COMMENT
 %%
 Program : Funcs
  { output::printProductionRule(1); }
