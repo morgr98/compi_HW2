@@ -31,9 +31,10 @@ rparen(\))
 lbrace (\{)
 rbrace (\})
 assign (\=)
-relop (==|!=|<|>|<=|>=)
-plus_minus ([+\-])
-mult_div ([\*/])
+relop (<|>|<=|>=)
+equal_relop (==|!=)
+plus_minus ([\+\-])
+mult_div ([\*\/])
 comment (\/\/[^\r\n]*[\r|\n|\r\n]?)
 digit ([0-9])
 letter ([a-zA-Z])
@@ -41,7 +42,7 @@ whitespace ([ \t\n\r])
 id ([a-zA-Z]+[a-zA-Z0-9]*)
 num (0|([1-9]{digit}*))
 space ([ ])
-string \"([^\n\r\"\\]|\\[rnt\"\\])+\"
+string (\"([^\n\r\"\\]|\\[rnt\"\\])+\")
 
 
 %%
@@ -69,12 +70,14 @@ b return B;
 {rbrace} return RBRACE;
 {assign} return ASSIGN;
 {relop} return RELOP;
+{equal_relop} return EQUAL_RELOP;
 {plus_minus} return PLUS_MINUS;
 {mult_div} return MULT_DIV;
 {num} return NUM;
 {id} return ID;
 {string} return STRING;
-{comment}
-{whitespace}
-. errorLex(yylineno);
+{comment};
+{whitespace};
+
+. {errorLex(yylineno);}
 %%
