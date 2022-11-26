@@ -1,22 +1,24 @@
 %{
 #include "output.hpp"
 #include <iostream>
+#include <stdlib.h>
 extern int yylex();
 extern int yylineno;
+using namespace output;
 int yyerror(const char * message);
 %}
 
 %left ID
-%right STRING
-%right NUM
+%left STRING
+%left NUM
 %nonassoc VOID
 %nonassoc INT
 %nonassoc BYTE
 %nonassoc B
 %nonassoc BOOL
 %nonassoc ASSIGN
-%right OR
-%right AND
+%left OR
+%left AND
 %nonassoc TRUE
 %nonassoc FALSE
 %nonassoc RETURN
@@ -135,12 +137,12 @@ Exp : Exp EQUAL_RELOP Exp
 Exp : LPAREN Type RPAREN Exp
  { output::printProductionRule(46); }
 %%
-int main() {
-    return yyparse();
+int main()
+{
+	yyparse();
 }
 
-int yyerror(const char * s)
+int yyerror(const char * message)
 {
-    std::cout<<"what up"<<std::endl;
-    output::errorSyn(yylineno);
+	errorSyn(yylineno);
 }

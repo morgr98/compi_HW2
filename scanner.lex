@@ -24,8 +24,8 @@ else "else"
 while "while"
 break "break"
 continue "continue"
-sc (;)
-comma (,)
+sc (\;)
+comma (\,)
 lparen (\()
 rparen(\))
 lbrace (\{)
@@ -76,8 +76,8 @@ b return B;
 {num} return NUM;
 {id} return ID;
 {string} return STRING;
-{comment};
-{whitespace};
+{comment}
+{whitespace}
 
 . {errorLex(yylineno);}
 %%

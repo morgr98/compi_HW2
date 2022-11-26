@@ -58,11 +58,9 @@ void output::printProductionRule(const int ruleno) {
 void output::errorLex(const int lineno) {
     std::cout << "line " << lineno << ": lexical error\n";
     std::exit(0);
-    std::cout<<"hi it is me"<< std::endl;
 }
 
 void output::errorSyn(const int lineno) {
     std::cout << "line " << lineno << ": syntax error\n";
     std::exit(0);
-    std::cout<<"hi it is me!"<< std::endl;
 }
