@@ -8,15 +8,8 @@ using namespace output;
 int yyerror(const char * message);
 %}
 
-%left ID
-%left STRING
-%left NUM
-%nonassoc VOID
-%nonassoc INT
-%nonassoc BYTE
-%nonassoc B
-%nonassoc BOOL
-%nonassoc ASSIGN
+%nonassoc ID STRING NUM VOID INT BYTE B BOOL
+%right ASSIGN
 %left OR
 %left AND
 %nonassoc TRUE
@@ -26,17 +19,17 @@ int yyerror(const char * message);
 %nonassoc IF
 %nonassoc BREAK
 %nonassoc CONTINUE
-%left SC
 %nonassoc COMMA
 %nonassoc LBRACE
 %nonassoc RBRACE
-%right EQUAL_RELOP
-%right RELOP
-%right MULT_DIV
+%left EQUAL_RELOP
+%left RELOP
+%left MULT_DIV
 %left PLUS_MINUS
-%left NOT
-%right LPAREN
-%right RPAREN
+%right NOT
+%left LPAREN
+%left RPAREN
+%left SC
 %nonassoc ELSE
 
 %%
